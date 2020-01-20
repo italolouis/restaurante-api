@@ -27,7 +27,7 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 
-	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Item> adicionarItem(@Valid @RequestBody Item item, HttpServletResponse response) {
@@ -35,14 +35,14 @@ public class ItemController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(itemSalvo);
 	}
 
-	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> getProdutosAdicionados() {
 	List<Item> produtos = itemService.buscarItensAdicionados();
 		return !produtos.isEmpty() ? ResponseEntity.ok(produtos) : ResponseEntity.notFound().build();
 	}
 
-	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@DeleteMapping
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void excluirProduto(@Valid @RequestBody Item item) {

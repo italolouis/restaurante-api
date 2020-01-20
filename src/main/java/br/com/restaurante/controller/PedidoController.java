@@ -25,7 +25,7 @@ public class PedidoController {
 	@Autowired
 	private PedidoService pedidoService;
 
-	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Pedido> adicionarItem(@Valid @RequestBody Pedido pedido, HttpServletResponse response) {
@@ -33,7 +33,7 @@ public class PedidoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(pedidoSalvo);
 	}
 
-	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> getPedidos() {
 		List<Pedido> pedidos = pedidoService.listarPedidos();
