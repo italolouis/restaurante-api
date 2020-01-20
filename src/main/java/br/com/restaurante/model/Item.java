@@ -17,8 +17,10 @@ public class Item {
 	private Long produtoId;
 	private String nome;
 	private BigDecimal preco;
+	private BigDecimal quantidade;
 	private Long categoriaId;
 	private String status;
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,6 +45,12 @@ public class Item {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+	public BigDecimal getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(BigDecimal quantidade) {
+		this.quantidade = quantidade;
+	}
 	public Long getCategoriaId() {
 		return categoriaId;
 	}
@@ -64,6 +72,7 @@ public class Item {
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
 		result = prime * result + ((produtoId == null) ? 0 : produtoId.hashCode());
+		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
@@ -101,6 +110,11 @@ public class Item {
 				return false;
 		} else if (!produtoId.equals(other.produtoId))
 			return false;
+		if (quantidade == null) {
+			if (other.quantidade != null)
+				return false;
+		} else if (!quantidade.equals(other.quantidade))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
@@ -108,7 +122,4 @@ public class Item {
 			return false;
 		return true;
 	}
-	
-	
-
 }

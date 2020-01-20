@@ -4,6 +4,7 @@ CREATE TABLE item(
     nome VARCHAR(50),
     descricao VARCHAR(50),
     preco DECIMAL(10,2),
+    quantidade DECIMAL(10,2),
     categoria_id BIGINT(20),
     status VARCHAR(15)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,5 @@
+CREATE TABLE pedido(
+	id BIGINT(20) NOT NULL,
+    cliente VARCHAR(50),
+    valor DECIMAL(10,2)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
