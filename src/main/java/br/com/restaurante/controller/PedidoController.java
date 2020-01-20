@@ -24,16 +24,16 @@ import br.com.restaurante.service.PedidoService;
 public class PedidoController {
 	@Autowired
 	private PedidoService pedidoService;
-	
-	@CrossOrigin
+
+	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Pedido> adicionarItem(@Valid @RequestBody Pedido pedido, HttpServletResponse response) {
 		Pedido pedidoSalvo = pedidoService.criarPedido(pedido);
 		return ResponseEntity.status(HttpStatus.CREATED).body(pedidoSalvo);
 	}
-	
-	@CrossOrigin
+
+	@CrossOrigin(origins = "https://pedidos-restaurante-api.herokuapp.com/")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> getPedidos() {
 		List<Pedido> pedidos = pedidoService.listarPedidos();
