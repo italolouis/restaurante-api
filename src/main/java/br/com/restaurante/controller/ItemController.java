@@ -28,5 +28,4 @@ public class ItemController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(itemSalvo);
 	}
 	
-
 }
