@@ -20,7 +20,7 @@ public class Item {
 	private BigDecimal quantidade;
 	private Long categoriaId;
 	private String status;
-	
+	private Long pedidoId;
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +63,12 @@ public class Item {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public Long getPedidoId() {
+		return pedidoId;
+	}
+	public void setPedidoId(Long pedidoId) {
+		this.pedidoId = pedidoId;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,6 +76,7 @@ public class Item {
 		result = prime * result + ((categoriaId == null) ? 0 : categoriaId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((pedidoId == null) ? 0 : pedidoId.hashCode());
 		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
 		result = prime * result + ((produtoId == null) ? 0 : produtoId.hashCode());
 		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
@@ -100,6 +107,11 @@ public class Item {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (pedidoId == null) {
+			if (other.pedidoId != null)
+				return false;
+		} else if (!pedidoId.equals(other.pedidoId))
+			return false;
 		if (preco == null) {
 			if (other.preco != null)
 				return false;
@@ -122,4 +134,5 @@ public class Item {
 			return false;
 		return true;
 	}
+	
 }
